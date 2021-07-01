@@ -738,7 +738,8 @@ class TDStreamerClient():
             except websockets.exceptions.ConnectionClosed:
 
                 # stop the connection if there is an error.
-                await self.close_stream()
+                # await self.close_stream()
+                await self.connection.close()
                 break           
 
     async def _parse_json_message(self, message: str) -> dict:
